@@ -26,11 +26,11 @@ namespace JWTManager
             {
                 Clipboard.SetText(metroTextBoxToken.Text);
                 isCopied = true;
-                MetroFramework.MetroMessageBox.Show(this, "Token copied to clipboard", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information, 100);
+                MetroFramework.MetroMessageBox.Show(this, "Token copied to clipboard", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -42,7 +42,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -54,7 +54,7 @@ namespace JWTManager
                 {
                     if (isCopied == false)
                     {
-                        DialogResult result = MetroFramework.MetroMessageBox.Show(this, "Do you want to copy the text?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, 100);
+                        DialogResult result = MetroFramework.MetroMessageBox.Show(this, "Do you want to copy the text?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
                             //code for Yes
@@ -90,7 +90,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

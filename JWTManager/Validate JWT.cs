@@ -1,5 +1,7 @@
 ﻿using JWT;
 using JWT.Builder;
+using JWT.Serializers;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -50,21 +52,21 @@ namespace JWTManager
                      .WithSecret(encryptionkey)
                      .MustVerifySignature()
                      .Decode(metroTextBoxToken.Text.ToString());
-                MetroFramework.MetroMessageBox.Show(this, "Signature Validated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information, 100);
+                MetroFramework.MetroMessageBox.Show(this, "Signature Validated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             catch (TokenExpiredException)
             {
                 Debug.WriteLine("Token has expired");
-                MetroFramework.MetroMessageBox.Show(this, "Token Expired", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, "Token Expired", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (SignatureVerificationException)
             {
                 Debug.WriteLine("Token has invalid signature");
-                MetroFramework.MetroMessageBox.Show(this, "Invalid Signature", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, "Invalid Signature", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -83,7 +85,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -103,7 +105,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

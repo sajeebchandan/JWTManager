@@ -16,6 +16,7 @@ using System.Security.Cryptography;
 using System.Security.Claims;
 using JWT.Serializers;
 using Newtonsoft.Json;
+using Microsoft.IdentityModel.Tokens;
 
 namespace JWTManager
 {
@@ -38,7 +39,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -50,7 +51,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -66,7 +67,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -103,18 +104,19 @@ namespace JWTManager
                 }
                 else
                     algorithm = new HMACSHA256Algorithm();
-                IJsonSerializer serializer = new JsonNetSerializer();
-                IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
-                IJwtEncoder encoder = new JwtEncoder(algorithm, serializer, urlEncoder);
-                payload.Add("exp", DateTimeOffset.UtcNow.AddMinutes(Convert.ToInt32(metroTextBox1.Text.ToString())).ToUnixTimeSeconds());
 
-                var token = encoder.Encode(payload, encryptionkey);
+                var token = new JwtBuilder()
+                    .WithAlgorithm(algorithm)
+                    .WithSecret(encryptionkey)
+                    .AddClaims(payload)
+                    .ExpirationTime(DateTime.Now.AddMinutes(Convert.ToInt32(metroTextBoxExpireAfter.Text)))
+                    .Build();
                 JWT _JWT = new JWT(token);
                 _JWT.ShowDialog();
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, "One or more field required", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -134,7 +136,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -150,7 +152,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         //private void AddClaimToListView(string claimName, string claimValue)
@@ -162,7 +164,7 @@ namespace JWTManager
         //    }
         //    catch (Exception ex)
         //    {
-        //        MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+        //        MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
 
@@ -174,7 +176,7 @@ namespace JWTManager
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 100);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
