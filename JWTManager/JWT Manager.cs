@@ -51,22 +51,22 @@ namespace JWTManager
 
         private void JWTManager_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                DialogResult result = MetroFramework.MetroMessageBox.Show(this, "Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (result == DialogResult.Yes)
-                {
-                    System.Environment.Exit(0);
-                }
-                else if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    DialogResult result = MetroFramework.MetroMessageBox.Show(this, "Are you sure?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        System.Environment.Exit(0);
+            //    }
+            //    else if (result == DialogResult.No)
+            //    {
+            //        e.Cancel = true;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MetroFramework.MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void metroTileGenerateQuickJWT_Click(object sender, EventArgs e)
@@ -78,6 +78,15 @@ namespace JWTManager
                 .Build();
             JWT _JWT = new JWT(token);
             _JWT.ShowDialog();
+        }
+
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            using (AboutForm about = new AboutForm())
+            {
+                about.StartPosition = FormStartPosition.CenterParent;
+                DialogResult dr = about.ShowDialog();
+            }
         }
     }
 }

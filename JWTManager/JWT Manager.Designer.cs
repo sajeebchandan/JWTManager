@@ -33,6 +33,7 @@
             this.metroTileValidateJWT = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroTileGenerateQuickJWT = new MetroFramework.Controls.MetroTile();
+            this.buttonAbout = new System.Windows.Forms.Button();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTileGenerateJWT.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTileGenerateJWT.Location = new System.Drawing.Point(3, 45);
+            this.metroTileGenerateJWT.Location = new System.Drawing.Point(3, 33);
             this.metroTileGenerateJWT.Name = "metroTileGenerateJWT";
             this.metroTileGenerateJWT.Size = new System.Drawing.Size(131, 86);
             this.metroTileGenerateJWT.Style = MetroFramework.MetroColorStyle.Green;
@@ -60,7 +61,7 @@
             // 
             this.metroTileValidateJWT.ActiveControl = null;
             this.metroTileValidateJWT.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTileValidateJWT.Location = new System.Drawing.Point(170, 45);
+            this.metroTileValidateJWT.Location = new System.Drawing.Point(170, 33);
             this.metroTileValidateJWT.Name = "metroTileValidateJWT";
             this.metroTileValidateJWT.Size = new System.Drawing.Size(131, 86);
             this.metroTileValidateJWT.Style = MetroFramework.MetroColorStyle.Green;
@@ -75,6 +76,7 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.buttonAbout);
             this.metroPanel1.Controls.Add(this.metroTileGenerateQuickJWT);
             this.metroPanel1.Controls.Add(this.metroTileValidateJWT);
             this.metroPanel1.Controls.Add(this.metroTileGenerateJWT);
@@ -99,7 +101,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTileGenerateQuickJWT.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTileGenerateQuickJWT.Location = new System.Drawing.Point(3, 137);
+            this.metroTileGenerateQuickJWT.Location = new System.Drawing.Point(3, 125);
             this.metroTileGenerateQuickJWT.Name = "metroTileGenerateQuickJWT";
             this.metroTileGenerateQuickJWT.Size = new System.Drawing.Size(298, 86);
             this.metroTileGenerateQuickJWT.Style = MetroFramework.MetroColorStyle.Green;
@@ -111,6 +113,22 @@
             this.metroTileGenerateQuickJWT.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.metroTileGenerateQuickJWT.UseSelectable = true;
             this.metroTileGenerateQuickJWT.Click += new System.EventHandler(this.metroTileGenerateQuickJWT_Click);
+            // 
+            // buttonAbout
+            // 
+            this.buttonAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
+            this.buttonAbout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAbout.FlatAppearance.BorderSize = 0;
+            this.buttonAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAbout.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonAbout.Location = new System.Drawing.Point(3, 231);
+            this.buttonAbout.Name = "buttonAbout";
+            this.buttonAbout.Size = new System.Drawing.Size(298, 30);
+            this.buttonAbout.TabIndex = 21;
+            this.buttonAbout.Text = "About";
+            this.buttonAbout.UseVisualStyleBackColor = false;
+            this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
             // 
             // JWTManager
             // 
@@ -139,5 +157,6 @@
         private MetroFramework.Controls.MetroTile metroTileValidateJWT;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroTile metroTileGenerateQuickJWT;
+        private System.Windows.Forms.Button buttonAbout;
     }
 }

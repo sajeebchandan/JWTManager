@@ -1,1 +1,1 @@
-﻿Thank you for installing JWTManager
+﻿Thank you for installing JWT Manager
