@@ -121,7 +121,7 @@
     <value>Hi! I'm                                     
 I'm a full stack .NET/.NET Core developer by passion and profession.
 
-                         is a small windows desktop app which can generate JSON Web Token using JWT supported hashing algorithoms with necessary claim information you provide. It also can validate signatue, expiration of a token as well as can retrive claim information from a token. </value>
+                         is a small windows desktop app which can generate JSON Web Token using JWT supported hashing algorithms with necessary claim information you provide. It also can validate signature, expiration of a token as well as can retrieve claim information from a token. </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonGithub.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
