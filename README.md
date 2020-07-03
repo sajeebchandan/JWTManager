@@ -30,4 +30,4 @@ JWT Manager is a small windows desktop app which can generate JSON Web Token usi
 * [jwt-dotnet/jwt](https://github.com/jwt-dotnet/jwt)
 * [thielj/MetroFramework](https://github.com/thielj/MetroFramework) for UI.
 * Setup has been created with [Inno Setup Compiler](https://github.com/jrsoftware/issrc) by [JRSoftware](https://github.com/jrsoftware)
-* [James Newton-King](https://github.com/JamesNK) for this awesome library [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)https://github.com/sajeebchandan/JWTManager/releases/tag/1.0.0.0
+* [James Newton-King](https://github.com/JamesNK) for this awesome library [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
