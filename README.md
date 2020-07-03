@@ -4,7 +4,7 @@ JSON Web Token Manager. Generate and Validate JSON Web Token
 # Latest Release
 ## [JWT Manager v1.0.0.0](https://github.com/sajeebchandan/JWTManager/releases/tag/1.0.0.0)
 
-![image](https://user-images.githubusercontent.com/34353160/85946750-675b5e80-b968-11ea-897e-0a41bd8ede0b.png)
+![image](https://user-images.githubusercontent.com/34353160/86495347-d1c23380-bd9a-11ea-8c65-0b210e75af62.png)
 
 # What is JWT Manager
 JWT Manager is a small windows desktop app which can generate JSON Web Token using JWT supported hashing algorithoms with necessary claim information you provide. It also can validate signatue, expiration of a token as well as can retrive claim information from a token.
