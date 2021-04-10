@@ -2,11 +2,13 @@
 using JWT.Algorithms;
 using JWT.Builder;
 using JWT.Serializers;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,12 +73,16 @@ namespace JWTManager
 
         private void metroTileGenerateQuickJWT_Click(object sender, EventArgs e)
         {
-            var token = new JwtBuilder()
-                .WithAlgorithm(new HMACSHA256Algorithm())
-                .WithSecret("KwkQ37eYtFJ94mpsuoWuyVph5vLpDmeX9FYFsSLqsUTzMvyeW2dZcN7PW2eQKJzQEDJ9JDL3LpKki9eDtDkDDHgiyroMNb7zcfysdXat")
-                .ExpirationTime(DateTime.Now.AddMinutes(30))
-                .Build();
-            JWT _JWT = new JWT(token);
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("KwkQ37eYtFJ94mpsuoWuyVph5vLpDmeX9FYFsSLqsUTzMvyeW2dZcN7PW2eQKJzQEDJ9JDL3LpKki9eDtDkDDHgiyroMNb7zcfysdXat"));
+            var secToken = new JwtSecurityToken(
+            signingCredentials: new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256),
+            issuer: "JWT Manager (https://github.com/sajeebchandan/JWTManager)",
+            audience: "JWT Manager (https://github.com/sajeebchandan/JWTManager)",
+
+            expires: DateTime.UtcNow.AddDays(30));
+            var handler = new JwtSecurityTokenHandler();
+
+            JWT _JWT = new JWT(handler.WriteToken(secToken));
             _JWT.ShowDialog();
         }
 

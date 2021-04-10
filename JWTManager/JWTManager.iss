@@ -24,14 +24,14 @@ DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; The [Icons] "quicklaunchicon" entry uses {userappdata} but its [Tasks] entry has a proper IsAdminInstallMode Check.
 UsedUserAreasWarning=no
-InfoBeforeFile=C:\Users\LENOVO\source\repos\JWTManager\JWTManager\Install_Before.txt
-InfoAfterFile=C:\Users\LENOVO\source\repos\JWTManager\JWTManager\Install_After.txt
+InfoBeforeFile=I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\Install_Before.txt
+InfoAfterFile=I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\Install_After.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputDir=C:\Users\LENOVO\source\repos\JWTManager
+OutputDir=I:\IDEs\Visual Studio 2017\JWTManager
 OutputBaseFilename=JWT Manager_Setup
-SetupIconFile=C:\Users\LENOVO\source\repos\JWTManager\JWTManager\2541672_512__1__pWW_icon.ico
+SetupIconFile=I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\2541672_512__1__pWW_icon.ico
 Compression=lzma/ultra64
 SolidCompression=yes
 WizardStyle=modern
@@ -46,18 +46,18 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 6.1; Check: not IsAdminInstallMode
 
 [Files]
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\JWTManager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\JWT.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\JWTManager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\JWTManager.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\MetroFramework.Design.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\MetroFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\MetroFramework.Fonts.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\Microsoft.IdentityModel.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\Microsoft.IdentityModel.Tokens.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\LENOVO\source\repos\JWTManager\JWTManager\bin\Debug\System.IdentityModel.Tokens.Jwt.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\JWTManager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\JWT.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\JWTManager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\JWTManager.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\MetroFramework.Design.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\MetroFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\MetroFramework.Fonts.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\Microsoft.IdentityModel.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\Microsoft.IdentityModel.Tokens.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "I:\IDEs\Visual Studio 2017\JWTManager\JWTManager\bin\Debug\System.IdentityModel.Tokens.Jwt.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

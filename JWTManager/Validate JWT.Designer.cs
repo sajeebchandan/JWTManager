@@ -38,23 +38,23 @@ namespace JWTManager
             this.metroTextBoxEncryptionKey = new MetroFramework.Controls.MetroTextBox();
             this.metroLabelEncryptionKey = new MetroFramework.Controls.MetroLabel();
             this.metroButtonLoadData = new MetroFramework.Controls.MetroButton();
-            this.metroTextBoxHashingAlgorithm = new MetroFramework.Controls.MetroTextBox();
             this.metroButtonValidateJwt = new MetroFramework.Controls.MetroButton();
             this.metroLabelHashingAlgorithm = new MetroFramework.Controls.MetroLabel();
             this.metroTextBoxToken = new MetroFramework.Controls.MetroTextBox();
             this.metroLabelToken = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBoxHashingAlgorithm = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.metroComboBoxHashingAlgorithm);
             this.metroPanel1.Controls.Add(this.metroLabel3);
             this.metroPanel1.Controls.Add(this.metroTextBoxClaims);
             this.metroPanel1.Controls.Add(this.metroCheckBoxUseDefault);
             this.metroPanel1.Controls.Add(this.metroTextBoxEncryptionKey);
             this.metroPanel1.Controls.Add(this.metroLabelEncryptionKey);
             this.metroPanel1.Controls.Add(this.metroButtonLoadData);
-            this.metroPanel1.Controls.Add(this.metroTextBoxHashingAlgorithm);
             this.metroPanel1.Controls.Add(this.metroButtonValidateJwt);
             this.metroPanel1.Controls.Add(this.metroLabelHashingAlgorithm);
             this.metroPanel1.Controls.Add(this.metroTextBoxToken);
@@ -188,38 +188,6 @@ namespace JWTManager
             this.metroButtonLoadData.UseSelectable = true;
             this.metroButtonLoadData.Click += new System.EventHandler(this.metroButtonLoadData_Click);
             // 
-            // metroTextBoxHashingAlgorithm
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBoxHashingAlgorithm.CustomButton.Image = null;
-            this.metroTextBoxHashingAlgorithm.CustomButton.Location = new System.Drawing.Point(383, 1);
-            this.metroTextBoxHashingAlgorithm.CustomButton.Name = "";
-            this.metroTextBoxHashingAlgorithm.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBoxHashingAlgorithm.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBoxHashingAlgorithm.CustomButton.TabIndex = 1;
-            this.metroTextBoxHashingAlgorithm.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBoxHashingAlgorithm.CustomButton.UseSelectable = true;
-            this.metroTextBoxHashingAlgorithm.CustomButton.Visible = false;
-            this.metroTextBoxHashingAlgorithm.Lines = new string[0];
-            this.metroTextBoxHashingAlgorithm.Location = new System.Drawing.Point(240, 133);
-            this.metroTextBoxHashingAlgorithm.MaxLength = 32767;
-            this.metroTextBoxHashingAlgorithm.Name = "metroTextBoxHashingAlgorithm";
-            this.metroTextBoxHashingAlgorithm.PasswordChar = '\0';
-            this.metroTextBoxHashingAlgorithm.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBoxHashingAlgorithm.SelectedText = "";
-            this.metroTextBoxHashingAlgorithm.SelectionLength = 0;
-            this.metroTextBoxHashingAlgorithm.SelectionStart = 0;
-            this.metroTextBoxHashingAlgorithm.ShortcutsEnabled = true;
-            this.metroTextBoxHashingAlgorithm.Size = new System.Drawing.Size(405, 23);
-            this.metroTextBoxHashingAlgorithm.Style = MetroFramework.MetroColorStyle.Green;
-            this.metroTextBoxHashingAlgorithm.TabIndex = 4;
-            this.metroTextBoxHashingAlgorithm.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTextBoxHashingAlgorithm.UseSelectable = true;
-            this.metroTextBoxHashingAlgorithm.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBoxHashingAlgorithm.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // metroButtonValidateJwt
             // 
             this.metroButtonValidateJwt.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -287,6 +255,19 @@ namespace JWTManager
             this.metroLabelToken.Text = "Token";
             this.metroLabelToken.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // metroComboBoxHashingAlgorithm
+            // 
+            this.metroComboBoxHashingAlgorithm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroComboBoxHashingAlgorithm.FormattingEnabled = true;
+            this.metroComboBoxHashingAlgorithm.ItemHeight = 23;
+            this.metroComboBoxHashingAlgorithm.Location = new System.Drawing.Point(240, 123);
+            this.metroComboBoxHashingAlgorithm.Name = "metroComboBoxHashingAlgorithm";
+            this.metroComboBoxHashingAlgorithm.Size = new System.Drawing.Size(405, 29);
+            this.metroComboBoxHashingAlgorithm.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroComboBoxHashingAlgorithm.TabIndex = 8;
+            this.metroComboBoxHashingAlgorithm.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroComboBoxHashingAlgorithm.UseSelectable = true;
+            // 
             // ValidateJWT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +284,7 @@ namespace JWTManager
             this.Text = "Validate JWT";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ValidateJWT_FormClosing);
+            this.Load += new System.EventHandler(this.ValidateJWT_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -316,12 +298,12 @@ namespace JWTManager
         private MetroFramework.Controls.MetroLabel metroLabelHashingAlgorithm;
         private MetroFramework.Controls.MetroTextBox metroTextBoxToken;
         private MetroFramework.Controls.MetroLabel metroLabelToken;
-        private MetroFramework.Controls.MetroTextBox metroTextBoxHashingAlgorithm;
         private MetroFramework.Controls.MetroButton metroButtonLoadData;
         private MetroFramework.Controls.MetroCheckBox metroCheckBoxUseDefault;
         private MetroFramework.Controls.MetroTextBox metroTextBoxEncryptionKey;
         private MetroFramework.Controls.MetroLabel metroLabelEncryptionKey;
         private MetroFramework.Controls.MetroTextBox metroTextBoxClaims;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroComboBox metroComboBoxHashingAlgorithm;
     }
 }

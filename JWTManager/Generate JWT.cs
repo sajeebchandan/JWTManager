@@ -22,7 +22,7 @@ namespace JWTManager
 {
     public partial class GenerateJWT : MetroFramework.Forms.MetroForm
     {
-        IDictionary<string, object> payload = new Dictionary<string, object>();
+        IList<Claim> payload = new List<Claim>();
         string encryptionkey;
         public GenerateJWT()
         {
@@ -59,8 +59,13 @@ namespace JWTManager
         {
             try
             {
-                payload.Add(metroTextBoxClaimName.Text.ToString(), metroTextBoxClaimValue.Text.ToString());
-                metroTextBoxClaims.Text = JsonConvert.SerializeObject(payload, Formatting.Indented);
+                payload.Add(new Claim(metroTextBoxClaimName.Text.ToString(), metroTextBoxClaimValue.Text.ToString()));
+                metroTextBoxClaims.Text = JsonConvert.SerializeObject(
+                    new
+                    {
+                        type = metroTextBoxClaimName.Text.ToString(),
+                        value = metroTextBoxClaimValue.Text.ToString(),
+                    }, Formatting.Indented);
                 metroTextBoxClaimName.Text = string.Empty;
                 metroTextBoxClaimValue.Text = string.Empty;
                 metroTextBoxClaimName.Focus();
@@ -105,13 +110,18 @@ namespace JWTManager
                 else
                     algorithm = new HMACSHA256Algorithm();
 
-                var token = new JwtBuilder()
-                    .WithAlgorithm(algorithm)
-                    .WithSecret(encryptionkey)
-                    .AddClaims(payload)
-                    .ExpirationTime(DateTime.Now.AddMinutes(Convert.ToInt32(metroTextBoxExpireAfter.Text)))
-                    .Build();
-                JWT _JWT = new JWT(token);
+
+
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(encryptionkey));
+                var secToken = new JwtSecurityToken(
+                signingCredentials: new SigningCredentials(securityKey, metroComboBoxHashingAlgorithm.SelectedItem.ToString()),
+                issuer: "JWT Manager (https://github.com/sajeebchandan/JWTManager)",
+                audience: "JWT Manager (https://github.com/sajeebchandan/JWTManager)",
+                claims: payload,
+                expires: DateTime.UtcNow.AddDays(30));
+                var handler = new JwtSecurityTokenHandler();
+
+                JWT _JWT = new JWT(handler.WriteToken(secToken));
                 _JWT.ShowDialog();
             }
             catch (Exception ex)
@@ -145,7 +155,7 @@ namespace JWTManager
         {
             try
             {
-                foreach (var item in Enum.GetValues(typeof(JwtHashAlgorithm)).Cast<JwtHashAlgorithm>().ToList())
+                foreach (var item in Enum.GetValues(typeof(JwtAlgorithmName)).Cast<JwtAlgorithmName>().ToList())
                 {
                     metroComboBoxHashingAlgorithm.Items.Add(item);
                 }
