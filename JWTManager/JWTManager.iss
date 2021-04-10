@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "JWT Manager"
-#define MyAppVersion "1.0.0.0"
+#define MyAppVersion "1.1.0.0"
 #define MyAppPublisher "Sajeeb Chandan Saha"
 #define MyAppPublisherURL "https://www.fiverr.com/sajeeb_chandan"
 #define MyAppSupportURL "https://github.com/sajeebchandan/JWTManager"
